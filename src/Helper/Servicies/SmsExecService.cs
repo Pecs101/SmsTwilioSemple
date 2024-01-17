@@ -3,15 +3,22 @@ using Microsoft.Extensions.Options;
 using SMSAPIs.Entities;
 using SmsTwilioSemple.Helper.Dtos;
 using System.Net;
-using Twilio;
-using Twilio.Http;
+using Twilio; 
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
 namespace SmsTwilioSemple.Helper.Servicies;
 public class SmsExecService : ISmsExecService
 {  
-    public async Task<Response<MessageResource>> SendAsync(string contentMessage, string to, SmsConfig _smsConfig)
+    private SmsConfig _smsConfig;
+
+    public SmsExecService(IOptions<SmsConfig> options)
+    {
+            _smsConfig = options.Value;
+    }
+
+
+    public async Task<Response<MessageResource>> SendAsync(string contentMessage, string to)
     {
         try
         { 

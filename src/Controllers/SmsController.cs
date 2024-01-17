@@ -19,15 +19,15 @@ namespace SmsTwilioSemple.Controllers
         }
 
 
-        private SmsConfig Init()
-        {
-            var cnfig = new SmsConfig(); 
-            cnfig.AccountSID = _configuration.GetValue<string>("TwilioSetting:AccountSID");
-            cnfig.AuthToken = _configuration.GetValue<string>("TwilioSetting:AuthToken");
-            cnfig.OriginPhoneNumber = _configuration.GetValue<string>("TwilioSetting:OriginPhoneNumber");
+        //private SmsConfig Init()
+        //{
+        //    var cnfig = new SmsConfig(); 
+        //    cnfig.AccountSID = _configuration.GetValue<string>("TwilioSetting:AccountSID");
+        //    cnfig.AuthToken = _configuration.GetValue<string>("TwilioSetting:AuthToken");
+        //    cnfig.OriginPhoneNumber = _configuration.GetValue<string>("TwilioSetting:OriginPhoneNumber");
 
-            return cnfig;
-        }
+        //    return cnfig;
+        //}
 
 
         [HttpPost]
@@ -36,7 +36,7 @@ namespace SmsTwilioSemple.Controllers
         {
             try
             {
-                var result = await _smsExecService.SendAsync(model.Message, model.To, Init());
+                var result = await _smsExecService.SendAsync(model.Message, model.To);
                 return Ok(result);
             }
             catch (Exception ex)
