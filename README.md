@@ -1,2 +1,3 @@
 # SmsTwilioSemple
-Sms Twilio Semple
+Twilio SMS Semple
+Demo project with basic implementation of Twilio SMS Integration
