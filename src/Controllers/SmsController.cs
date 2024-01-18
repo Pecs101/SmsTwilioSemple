@@ -9,25 +9,12 @@ namespace SmsTwilioSemple.Controllers
     [ApiController]
     public class SmsController : Controller
     {
-        private readonly ISmsExecService _smsExecService;
-        private readonly IConfiguration _configuration;
+        private readonly ISmsExecService _smsExecService; 
 
-        public SmsController(ISmsExecService smsExecService, IConfiguration configuration)
+        public SmsController(ISmsExecService smsExecService )
         {
-            _smsExecService = smsExecService;
-            _configuration = configuration;
-        }
-
-
-        //private SmsConfig Init()
-        //{
-        //    var cnfig = new SmsConfig(); 
-        //    cnfig.AccountSID = _configuration.GetValue<string>("TwilioSetting:AccountSID");
-        //    cnfig.AuthToken = _configuration.GetValue<string>("TwilioSetting:AuthToken");
-        //    cnfig.OriginPhoneNumber = _configuration.GetValue<string>("TwilioSetting:OriginPhoneNumber");
-
-        //    return cnfig;
-        //}
+            _smsExecService = smsExecService; 
+        } 
 
 
         [HttpPost]
